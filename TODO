@@ -1,0 +1,17 @@
+
+------- users ---------
+GET /api/users/
+GET /api/users/:id/
+POST /api/users/
+
+
+-------- products ---------
+GET /api/products/                      NO AUTH
+GET /api/products/:id/                  NO AUTH               
+POST /api/products/
+GET /api/products/top-products/:number  NO AUTH
+GET /api/products/filter/:category      NO AUTH
+
+
+-------- orders -----------
+GET /api/orders/:user_id
