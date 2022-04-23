@@ -51,4 +51,17 @@ export class ProductStore {
            throw new Error(`can not add product ${product.name} to db: ${err}`)
        }
     }
+
+    async filterProductsByCategory(category: string): Promise<Product[]> {
+       try {
+           const connection = await databaseClient.connect()
+           const query = "SELECT * FROM products WHERE category=($1)"
+           const results = await connection.query(query, [category])
+           connection.release()
+           return results.rows
+       } 
+       catch (err) {
+           throw new Error(`can not filter products by categor ${category}, err: ${err}`)
+       }
+    }
 }
