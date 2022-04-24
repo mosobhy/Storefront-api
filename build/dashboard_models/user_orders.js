@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserOrders = void 0;
+exports.UserOrder = void 0;
 const database_1 = __importDefault(require("../database"));
-class UserOrders {
+class UserOrder {
     async getOrderByUser(user_id) {
         try {
             const connection = await database_1.default.connect();
@@ -26,4 +26,4 @@ class UserOrders {
         }
     }
 }
-exports.UserOrders = UserOrders;
+exports.UserOrder = UserOrder;
