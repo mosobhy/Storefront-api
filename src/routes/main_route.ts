@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express'
 import users_route from './api/users_endpoints'
 import products_route from './api/products_endpoint'
 import orders_route from './api/orders_endpoints'
+import { verifyJWT } from './utilities/middlewares'
 
 const mainRoute = express.Router()
 

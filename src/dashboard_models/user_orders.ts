@@ -1,7 +1,7 @@
 import databaseClient from "../database";
 
 
-interface UserOrderProduct {
+export interface UserOrderProduct {
     id?: number
     name: string
     price: number
@@ -9,7 +9,7 @@ interface UserOrderProduct {
 }
 
 
-export class UserOrders {
+export class UserOrder {
 
     async getOrderByUser(user_id: number): Promise<UserOrderProduct[]> {
         try {

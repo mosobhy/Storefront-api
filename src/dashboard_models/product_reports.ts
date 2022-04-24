@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import bcrypt from 'bcrypt'
 
 
-interface Product {
+export interface Product {
     id?: number,
     name: string,
     price: number,
@@ -11,7 +11,7 @@ interface Product {
 }
 
 
-export class ProductReports {
+export class ProductReport {
 
     async getTopFiveProducts(): Promise<Product[]> {
         try {
