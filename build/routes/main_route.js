@@ -7,8 +7,10 @@ const express_1 = __importDefault(require("express"));
 const users_endpoints_1 = __importDefault(require("./api/users_endpoints"));
 const products_endpoint_1 = __importDefault(require("./api/products_endpoint"));
 const orders_endpoints_1 = __importDefault(require("./api/orders_endpoints"));
+const register_1 = __importDefault(require("./api/register"));
 const mainRoute = express_1.default.Router();
 // map the main route to the api resources
+mainRoute.use('/register/', register_1.default);
 mainRoute.use('/users/', users_endpoints_1.default);
 mainRoute.use('/products/', products_endpoint_1.default);
 mainRoute.use('/orders/', orders_endpoints_1.default);

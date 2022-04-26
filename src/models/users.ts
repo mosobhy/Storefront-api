@@ -42,11 +42,9 @@ export class UserStore {
     async createUser(user: User): Promise<User> {
        try {
            const connection = await databaseClient.connect()
-           console.log('connection details: ' + Object.keys(connection))
-           const sql_query = "INSERT INTO users(firstname, lastname, password_hash) VALUES($1, $2, $3)"
+           const sql_query = "INSERT INTO users(firstname, lastname, password_hash) VALUES($1, $2, $3) RETURNING *"
            const password_hash = bcrypt.hashSync(user.password+process.env.BCRYPT_PASSWORD, Number(process.env.SALT_ROUNDS))
            const results = await connection.query(sql_query, [user.firstname, user.lastname, password_hash])
-           console.log('2.2 the results that is created: ' + results.rows)
            connection.release()
            return results.rows[0]
        } 

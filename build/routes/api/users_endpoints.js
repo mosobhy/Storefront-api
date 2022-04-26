@@ -32,7 +32,7 @@ users_route.get('/:id', middlewares_1.verifyJWT, async (req, res) => {
         res.json({ message: "can not get user with id" + req.body.id });
     }
 });
-users_route.post('/users', middlewares_1.verifyJWT, (req, res) => {
+users_route.post('/', middlewares_1.verifyJWT, async (req, res) => {
     try {
         const user_model = new users_1.UserStore();
         const user = {
@@ -43,7 +43,7 @@ users_route.post('/users', middlewares_1.verifyJWT, (req, res) => {
         user_model.createUser(user)
             .then((user) => {
             // create a jwt 
-            const token = jsonwebtoken_1.default.sign({ user: user }, String(process.env.JWT_TOKEN_SECRET));
+            const token = jsonwebtoken_1.default.sign(user, String(process.env.JWT_TOKEN_SECRET));
             res.status(200);
             res.json(token);
         })

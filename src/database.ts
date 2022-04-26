@@ -9,26 +9,20 @@ const env_vars = {
     TEST_DATABASE: process.env.TEST_DATABASE_NAME,
     USERNAME: process.env.USERNAME,
     PASSWORD: process.env.PASSWORD,
-    SERVER_MODE: process.env.ENV
+    SERVER_MODE: process.env.NODE_ENV
 }
 
-let databaseClient: Pool;
+console.dir(env_vars)
+console.log('a7a')
+let databaseClient: Pool = new Pool({
+    host: env_vars.HOST,
+    database: env_vars.SERVER_MODE === 'dev' ? env_vars.DEV_DATABASE: env_vars.TEST_DATABASE,
+    user: env_vars.USERNAME,
+    password: env_vars.PASSWORD
+})
 
-if (env_vars.SERVER_MODE === 'dev') {
-    databaseClient = new Pool({
-        host: env_vars.HOST,
-        database: env_vars.DEV_DATABASE,
-        user: env_vars.USERNAME,
-        password: env_vars.PASSWORD
-    })
-}
-else {
-    databaseClient = new Pool({
-        host: env_vars.HOST,
-        database: env_vars.TEST_DATABASE,
-        user: env_vars.USERNAME,
-        password: env_vars.PASSWORD
-    })
-}
+
+console.log("the database client is: ")
+console.dir(databaseClient)
 
 export default databaseClient;

@@ -25,6 +25,7 @@ describe('testing the ProductStore model', () => {
 
     it('returns an object when inserting new item', async() => {
         const p: Product = {
+            id: 1,
             name: 'Product',
             price: 1234,
             category: 'cat1'

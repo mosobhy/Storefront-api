@@ -33,7 +33,7 @@ users_route.get('/:id', verifyJWT, async (req: Request, res: Response) => {
     }
 })
 
-users_route.post('/', verifyJWT, async (req: Request, res: Response) => {
+users_route.post('/', async (req: Request, res: Response) => {
     try {
         const user_model: UserStore = new UserStore()
         const user: User = {
@@ -44,7 +44,7 @@ users_route.post('/', verifyJWT, async (req: Request, res: Response) => {
         user_model.createUser(user)
         .then((user) => {
             // create a jwt 
-            const token = jwt.sign({ user: user }, String(process.env.JWT_TOKEN_SECRET))
+            const token = jwt.sign( user , String(process.env.JWT_TOKEN_SECRET))
             res.status(200)
             res.json(token)
         })

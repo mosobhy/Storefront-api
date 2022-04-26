@@ -1,37 +1,15 @@
 {
     "dev": {
-        "driver": {
-            "ENV": "DRIVER"
-        },
-        "host": {
-            "ENV": "DATABASE_HOST"
-        },
-        "database": {
-            "ENV": "DEV_DATABASE_NAME"
-        },
-        "user": {
-            "ENV": "USERNAME"
-        },
-        "password": {
-            "ENV": "PASSWORD"
-        }
-    }
-    ,
-    "test": {
-        "driver": {
-            "ENV": "DRIVER"
-        },
-        "host": {
-            "ENV": "DATABASE_HOST"
-        },
-        "database": {
-            "ENV": "TEST_DATABASE_NAME"
-        },
-        "user": {
-            "ENV": "USERNAME"
-        },
-        "password": {
-            "ENV": "PASSWORD"
-        }
-    }
+        "driver": { "ENV": "DRIVER" },
+        "host": { "ENV": "DATABASE_HOST" },
+        "database": { "ENV": "DEV_DATABASE_NAME" },
+        "user": { "ENV": "USERNAME" },
+        "password": { "ENV": "PASSWORD" }
+    }, "test": {
+        "driver": { "ENV": "DRIVER" },
+        "host": { "ENV": "DATABASE_HOST" },
+        "database": { "ENV": "TEST_DATABASE_NAME" },
+        "user": { "ENV": "USERNAME" },
+        "password": { "ENV": "PASSWORD" }
+    }, "sql-file": true
 }

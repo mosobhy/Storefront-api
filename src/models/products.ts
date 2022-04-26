@@ -42,7 +42,7 @@ export class ProductStore {
     async createProduct(product: Product): Promise<Product> {
        try {
            const connection = await databaseClient.connect()
-           const query = "INSERT INTO products(name, price, category) VALUES($1, $2, $3)"
+           const query = "INSERT INTO products(name, price, category) VALUES($1, $2, $3) RETURNING * "
            const results = await connection.query(query, [product.name, product.price, product.category])
            connection.release()
            return results.rows[0]
