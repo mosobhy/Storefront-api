@@ -10,11 +10,10 @@ export const verifyJWT = async (req: Request, res: Response, next: NextFunction)
         // access the authrization header
         const authorizationHeader = String(req.headers.authorization)
         const jwt_token = authorizationHeader.split(' ')[1]
-        console.log("jwt: " + jwt_token)
         jwt.verify(jwt_token, String(process.env.JWT_TOKEN_SECRET))
-        return next()
+        next()
     }
     catch (err) {
-        res.json({ message: "invalid token"}).status(401)
+        return res.json({ message: "invalid token"}).status(401)
     }
 }

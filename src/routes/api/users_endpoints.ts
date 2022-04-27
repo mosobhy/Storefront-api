@@ -24,12 +24,12 @@ users_route.get('/', verifyJWT, async (req: Request, res: Response) => {
 users_route.get('/:id', verifyJWT, async (req: Request, res: Response) => {
     try {
        const user_model: UserStore = new UserStore() 
-       const user: User = await user_model.showUser(req.body.id)
+       const user: User = await user_model.showUser(Number(req.params.id))
        res.json(user).status(200)
     }
     catch(err) {
         res.status(400)
-        res.json({message: "can not get user with id" + req.body.id})
+        res.json({message: "can not get user with id" + req.params.id})
     }
 })
 

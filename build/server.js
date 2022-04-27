@@ -19,3 +19,4 @@ app.use("/api/", main_route_1.default);
 app.listen(address, () => {
     console.log(`starting app on: http://localhost:${address}`);
 });
+exports.default = app;

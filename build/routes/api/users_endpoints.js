@@ -24,15 +24,15 @@ users_route.get('/', middlewares_1.verifyJWT, async (req, res) => {
 users_route.get('/:id', middlewares_1.verifyJWT, async (req, res) => {
     try {
         const user_model = new users_1.UserStore();
-        const user = await user_model.showUser(req.body.id);
+        const user = await user_model.showUser(Number(req.params.id));
         res.json(user).status(200);
     }
     catch (err) {
         res.status(400);
-        res.json({ message: "can not get user with id" + req.body.id });
+        res.json({ message: "can not get user with id" + req.params.id });
     }
 });
-users_route.post('/', middlewares_1.verifyJWT, async (req, res) => {
+users_route.post('/', async (req, res) => {
     try {
         const user_model = new users_1.UserStore();
         const user = {

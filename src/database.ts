@@ -9,7 +9,7 @@ const env_vars = {
     TEST_DATABASE: process.env.TEST_DATABASE_NAME,
     USERNAME: process.env.USERNAME,
     PASSWORD: process.env.PASSWORD,
-    SERVER_MODE: process.env.NODE_ENV
+    SERVER_MODE: process.env.ENV
 }
 
 console.dir(env_vars)

@@ -53,7 +53,7 @@ products_route.post('/', middlewares_1.verifyJWT, async (req, res) => {
         res.json({ message: 'can not insert a new product to db' });
     }
 });
-products_route.get('/top-5-products/', async (req, res) => {
+products_route.get('/reports/top-5-products/', async (req, res) => {
     try {
         const product_reports_model = new product_reports_1.ProductReport();
         const top_products = await product_reports_model.getTopFiveProducts();

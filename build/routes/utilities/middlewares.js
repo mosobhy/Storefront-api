@@ -12,12 +12,11 @@ const verifyJWT = async (req, res, next) => {
         // access the authrization header
         const authorizationHeader = String(req.headers.authorization);
         const jwt_token = authorizationHeader.split(' ')[1];
-        console.log("jwt: " + jwt_token);
         jsonwebtoken_1.default.verify(jwt_token, String(process.env.JWT_TOKEN_SECRET));
-        return next();
+        next();
     }
     catch (err) {
-        res.json({ message: "invalid token" }).status(401);
+        return res.json({ message: "invalid token" }).status(401);
     }
 };
 exports.verifyJWT = verifyJWT;

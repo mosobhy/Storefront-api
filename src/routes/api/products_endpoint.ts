@@ -55,7 +55,7 @@ products_route.post('/', verifyJWT, async (req: Request, res: Response) => {
     }
 })
 
-products_route.get('/top-5-products/', async (req: Request, res: Response) => {
+products_route.get('/reports/top-5-products/', async (req: Request, res: Response) => {
     try {
         const product_reports_model: ProductReport = new ProductReport()
         const top_products = await product_reports_model.getTopFiveProducts()

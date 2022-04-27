@@ -1,6 +1,5 @@
 import { Product, ProductStore } from "../../models/products";
 import dotenv from 'dotenv'
-import bcrypt from 'bcrypt'
 
 dotenv.config()
 
@@ -26,12 +25,14 @@ describe('testing the ProductStore model', () => {
     it('returns an object when inserting new item', async() => {
         const p: Product = {
             id: 1,
-            name: 'Product',
-            price: 1234,
+            name: 'test',
+            price: 123,
             category: 'cat1'
         }
         const result = await product_model.createProduct(p)
-        expect(result).toEqual(p)
+        expect(result.name).toEqual(p.name)
+        expect(result.price).toEqual(p.price)
+        expect(result.category).toEqual(p.category)
     })
 
     it('retuns an item with id 1', async() => {

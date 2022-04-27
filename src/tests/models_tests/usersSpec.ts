@@ -28,12 +28,16 @@ describe('testing the UserStore model', () => {
     it('inserting a user works', async() => {
         const password_hash = bcrypt.hashSync('1234'+process.env.BCRYPT_PASSWORD, Number(process.env.SALT_ROUNDS))
         const newUser: User = {
-            firstname: 'mohamed',
-            lastname: 'sobhy',
+            firstname: 'new_user_first',
+            lastname: 'new_user_last',
             password : password_hash
         }
         const returned_user = await user_model.createUser(newUser)
-        expect(returned_user).toEqual(newUser)
+        // console.log(returned_user)
+        // console.log('thehashis: ' + returned_user.password)
+        expect(returned_user.firstname).toEqual(newUser.firstname)
+        expect(returned_user.lastname).toEqual(newUser.lastname)
+        // expect(bcrypt.compareSync('1234' + String(process.env.BCRYPT_PASSWORD), returned_user.password)).toBeTrue()
     })
 
     it('show a user by id works', async () => {
