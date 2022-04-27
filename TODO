@@ -9,7 +9,7 @@ POST /api/users/
 GET /api/products/                      NO AUTH
 GET /api/products/:id/                  NO AUTH               
 POST /api/products/
-GET /api/products/top-products/:number  NO AUTH
+GET /api/products/reports/top-products/ NO AUTH
 GET /api/products/filter/:category      NO AUTH
 
 

@@ -12,8 +12,6 @@ const env_vars = {
     SERVER_MODE: process.env.ENV
 }
 
-console.dir(env_vars)
-console.log('a7a')
 let databaseClient: Pool = new Pool({
     host: env_vars.HOST,
     database: env_vars.SERVER_MODE === 'dev' ? env_vars.DEV_DATABASE: env_vars.TEST_DATABASE,
@@ -21,8 +19,5 @@ let databaseClient: Pool = new Pool({
     password: env_vars.PASSWORD
 })
 
-
-console.log("the database client is: ")
-console.dir(databaseClient)
 
 export default databaseClient;
