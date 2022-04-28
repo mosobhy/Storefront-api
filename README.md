@@ -53,7 +53,7 @@ npm run test
 npm run build
 ```
 ```
-node ./build/server.ts
+node ./build/server.js
 ```
 
 ## API endpoints
